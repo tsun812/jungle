@@ -1,6 +1,11 @@
 class CartsController < ApplicationController
 
   def show
+    puts "hello #{enhanced_cart}"
+    if enhanced_cart == [] 
+      render "error"
+    else render 'show'
+    end
   end
 
   def add_item
