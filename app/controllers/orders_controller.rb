@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    p "hello #{@order.line_items[0].product.image.tiny}"
   end
 
   def create
