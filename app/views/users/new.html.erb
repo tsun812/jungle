@@ -1,15 +1,23 @@
-<h1>Signup!</h1>
-
-<%= form_for :user, url: '/users' do |f| %>
-
-  Name: <%= f.text_field :name %>
-  <br>
-  Email: <%= f.text_field :email %>
-  <br>
-  Password: <%= f.password_field :password %>
-  <br>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <br>
+<h1 class="signup">Signup!</h1>
+<section class="signup">
+<%=form_for :user, url: '/users' do |f|%>
+  <p>
+    <%= f.label :name, "Name:" %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email, "Email:" %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+  <%= f.label :password_confirmation, "Password_Confirmation:" %>
+  <%= f.password_field :password_confirmation %>
+  </p>
   <%= f.submit "Submit" %>
 
 <% end %>
+</section>
