@@ -38,6 +38,20 @@ RSpec.describe User, type: :model do
         expect(user).to_not be_valid
       end
     end
+    describe '.authenticate_with_credentials' do
+      # examples for this class method here
+      it "Verity valid login input, wrong password" do
+        user_create = User.create(name:"test_user", email: "test@gmail.com", password: "123456", password_confirmation: "123456")
+        user = User.authenticate_with_credentials("test@gmail.com", "123457")
+        expect(user).to eq(false)
+      end
+      it "Verity valid login input, correct password" do
+        user_create = User.create(name:"test_user", email: "test@gmail.com", password: "123456", password_confirmation: "123456")
+        user = User.authenticate_with_credentials("test@gmail.com", "123456")
+        expect(user.name).to eq("test_user")
+      end
+    end
+  
   end
 end
 
